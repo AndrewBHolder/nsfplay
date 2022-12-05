@@ -58,7 +58,7 @@ best way. Here are some problems you might encounter along the way.
 
 # Original readme.txt
 
-## NSFPlay/NSFPlug source code
+### NSFPlay/NSFPlug source code
 
 The original code is maintained by Brad Smith. It is a fork of NSFPlay/NSFPlug by Brezza.
 The latest version should be available at
@@ -76,8 +76,8 @@ and no warranty or liability is implied on my part.
 
 Feel free to contact me with questions or comments.
 
-Brad Smith
-nsfplay AT rainwarrior.ca
+Brad Smith  
+nsfplay AT rainwarrior.ca  
 [http://rainwarrior.ca](http://rainwarrior.ca)
 
 Original NSFPlay/NFSPlug project available at: [http://www.pokipoki.org/dsa/](http://www.pokipoki.org/dsa/)
