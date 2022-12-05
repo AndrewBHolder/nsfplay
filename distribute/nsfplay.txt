@@ -163,7 +163,10 @@ loopcount - number of times to loop, 0 default
 Versions
 ========
 
-NSFPlay 2.5 beta - ???
+NSFPlay 2.6 - (Unofficial)
+- NSF2 IRQ vector filled with existing content at $FFFE by default.
+
+NSFPlay 2.5 - 10/25/2022
 - APU frequency dividers now count down (more accurate pitch change timing).
 - Keyboard view speed control setting should reset to normal when the program restarts.
 - DPCM bit-reverse option.
@@ -176,6 +179,8 @@ NSFPlay 2.5 beta - ???
 - Fixed error in track selector length when using NSFe playlists.
 - Integrated VRC7 (YM2143) emulation update from Mitsutaka Okazaki.
 - Linear square mix level now matches nonlinear at 1 full square.
+- Fix winamp playlist generator track titles.
+- Write protect internal player memory.
 
 NSFPlay 2.4 - 3/30/2019
 - Fixed incorrect bytes per second in stereo WAV output.
