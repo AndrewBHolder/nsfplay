@@ -139,7 +139,7 @@ namespace xgm
 		//excess -= 106.687096774;
 		excess -= 97.67;
 
-		loudness[i] = excess / 2.35;
+        loudness[i] = excess / 2.35;
 	}
   }
 
@@ -280,7 +280,7 @@ namespace xgm
 	  return ((now_a - min_a) * (max_b - min_b)) / (max_a - min_a) + min_b;
   }
 
-  // OŠp”gƒ`ƒƒƒ“ƒlƒ‹‚ÌŒvZ –ß‚è’l‚Í0-15
+  // ä¸‰è§’æ³¢ãƒãƒ£ãƒ³ãƒãƒ«ã®è¨ˆç®— æˆ»ã‚Šå€¤ã¯0-15
   double NES_DMC::calc_tri (UINT32 clocks)
   {
     if (linear_counter > 0 && length_counter[0] > 0
@@ -320,10 +320,10 @@ namespace xgm
 	return ret;
   }
 
-  // ƒmƒCƒYƒ`ƒƒƒ“ƒlƒ‹‚ÌŒvZ –ß‚è’l‚Í0-127
-  // ’áƒTƒ“ƒvƒŠƒ“ƒOƒŒ[ƒg‚Å‡¬‚·‚é‚ÆƒGƒCƒŠƒAƒXƒmƒCƒY‚ªŒƒ‚µ‚¢‚Ì‚Å
-  // ƒmƒCƒY‚¾‚¯‚Í‚±‚ÌŠÖ”“à‚Å‚ƒNƒƒbƒN‡¬‚µAŠÈˆÕ‚ÈƒTƒ“ƒvƒŠƒ“ƒOƒŒ[ƒg
-  // •ÏŠ·‚ğs‚Á‚Ä‚¢‚éB
+  // ãƒã‚¤ã‚ºãƒãƒ£ãƒ³ãƒãƒ«ã®è¨ˆç®— æˆ»ã‚Šå€¤ã¯0-127
+  // ä½ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ãƒ¬ãƒ¼ãƒˆã§åˆæˆã™ã‚‹ã¨ã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒã‚¤ã‚ºãŒæ¿€ã—ã„ã®ã§
+  // ãƒã‚¤ã‚ºã ã‘ã¯ã“ã®é–¢æ•°å†…ã§é«˜ã‚¯ãƒ­ãƒƒã‚¯åˆæˆã—ã€ç°¡æ˜“ãªã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ãƒ¬ãƒ¼ãƒˆ
+  // å¤‰æ›ã‚’è¡Œã£ã¦ã„ã‚‹ã€‚
   double NES_DMC::calc_noise(UINT32 clocks)
   {
     UINT32 env = envelope_disable ? noise_volume : envelope_counter;
@@ -494,13 +494,8 @@ namespace xgm
 	const double MASTER = 8192.0 * 0.95;
 
     double m[3];
-    // m[0] = tnd_table[0][out[0]][0][0];
 	m[0] = (MASTER*(out[0] * 45.0) / 208.0);
-    //m[1] = tnd_table[0][0][out[1]][0];
-	//m[1] = (UINT32)(MASTER*((double)out[1] * 0.00078125) / 208.0);
 	m[1] = (MASTER*(out[1] * 1.95) / 208.0);
-	//m[1] = (UINT32)(MASTER*((double)out[1] * 2.0) / 208.0);
-	//m[2] = tnd_table[0][0][0][(UINT32)out[2]];
 	m[2] = (MASTER*(out[2]) / 208.0);
 
 	// anti-click nullifies any 4011 write but preserves nonlinearity
@@ -611,6 +606,7 @@ namespace xgm
     counter[0] = 0;
     counter[1] = 0;
     counter[2] = 0;
+    triangle_counter = 0;
     tphase = 0;
     nfreq = wavlen_table[0][0];
     dfreq = freq_table[0][0];
@@ -866,12 +862,12 @@ namespace xgm
 
     case 0x4012:
       adr_reg = val&0xff;
-      // ‚±‚±‚Ådaddress‚ÍXV‚³‚ê‚È‚¢
+      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½daddressï¿½ÍXï¿½Vï¿½ï¿½ï¿½ï¿½È‚ï¿½
       break;
 
     case 0x4013:
       len_reg = val&0xff;
-      // ‚±‚±‚Ålength‚ÍXV‚³‚ê‚È‚¢
+      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lengthï¿½ÍXï¿½Vï¿½ï¿½ï¿½ï¿½È‚ï¿½
       break;
 
     default:

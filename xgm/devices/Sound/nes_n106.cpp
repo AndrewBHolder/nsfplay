@@ -109,7 +109,12 @@ void NES_N106::Reset ()
     render_clock = 0;
     render_subclock = 0;
 
-    for (int i=0; i<8; ++i) fout[i] = 0;
+    for (int i = 0; i < 8; ++i) {
+        fout[i] = 0;
+        chphase2[i] = 0;
+        chfreq2[i] = 0;
+        chmaxphase2[i] = 0;
+    }
 
     Write(0xE000, 0x00); // master disable off
     Write(0xF800, 0x80); // select $00 with auto-increment
